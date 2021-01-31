@@ -1,0 +1,21 @@
+{
+  "name": "tcgcollections-api",
+  "version": "0.0.1",
+  "description": "TCG Collections API",
+  "author": "Filipe Mendes <filipemendes1994@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build-docker": "docker build -t fmendes/tcgcollections-api .",
+    "run-docker": "docker run -p 49160:8080 -d fmendes/tcgcollections-api"
+  },
+  "dependencies": {
+    "config": "^3.3.3",
+    "consign": "^0.1.6",
+    "express": "^4.16.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
