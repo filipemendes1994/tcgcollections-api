@@ -1,5 +1,10 @@
 {
   "server": {
-    "port" : 8080
+    "port": 8080,
+    "dbHost": "172.17.0.1",
+    "dbPort": "3306",
+    "dbUser": "user",
+    "dbPassword": "password",
+    "dbDatabase": "tcgcollections"
   }
 }
