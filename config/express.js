@@ -1,6 +1,6 @@
-const express = require('express');
 const config = require('config');
 const consign = require('consign');
+const express = require('express');
 
 module.exports = () => {
   const app = express();
