@@ -3,11 +3,11 @@ const Collection = require('../models/collection')();
 module.exports = () => ({
   list: async (req, res) => res.status(200).json(await Collection.findAll()),
   create: async (req, res) => {
-    const { shortDescription, longDescription, ownerId } = req.query;
+    const { shortDescription, longDescription, userId } = req.query;
     return res
       .status(200)
       .json(
-        await Collection.create({ shortDescription, longDescription, ownerId })
+        await Collection.create({ shortDescription, longDescription, userId })
       );
   },
   item: async (req, res) =>

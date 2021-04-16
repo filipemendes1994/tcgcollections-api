@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const DbConnection = require('../../config/database')();
 
-const Owner = DbConnection.define('owner', {
+const User = DbConnection.define('user', {
   id: {
     field: 'id',
     type: DataTypes.INTEGER,
@@ -41,4 +41,4 @@ const Owner = DbConnection.define('owner', {
   },
 });
 
-module.exports = () => Owner;
+module.exports = () => User;

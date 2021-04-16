@@ -30,8 +30,8 @@ const Collection = DbConnection.define('collection', {
     allowNull: false,
     defaultValue: false,
   },
-  ownerId: {
-    field: 'owner_id',
+  userId: {
+    field: 'user_id',
     type: DataTypes.INTEGER,
     foreignKey: true,
   },

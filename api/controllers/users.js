@@ -1,20 +1,20 @@
 const Collection = require('../models/collection')();
-const Owner = require('../models/owner')();
+const User = require('../models/user')();
 
-Owner.Collection = Owner.hasMany(Collection);
+User.Collection = User.hasMany(Collection);
 
 module.exports = () => ({
-  list: async (req, res) => res.status(200).json(await Owner.findAll()),
+  list: async (req, res) => res.status(200).json(await User.findAll()),
   create: async (req, res) => {
     const { name, occupation, latitude, longitude, bio } = req.query;
     return res
       .status(200)
-      .json(await Owner.create({ name, occupation, latitude, longitude, bio }));
+      .json(await User.create({ name, occupation, latitude, longitude, bio }));
   },
   item: async (req, res) =>
     res.status(200).json(
-      await Owner.findByPk(req.params.id, {
-        include: { association: Owner.Collection },
+      await User.findByPk(req.params.id, {
+        include: { association: User.Collection },
       })
     ),
   upsert: async (req, res) => {
@@ -22,12 +22,12 @@ module.exports = () => ({
     return res
       .status(200)
       .json(
-        await Owner.update(
+        await User.update(
           { name, occupation, latitude, longitude, bio },
           { where: { id: req.params.id } }
         )
       );
   },
   delete: async (req, res) =>
-    res.status(200).json(await Owner.destroy({ where: { id: req.params.id } })),
+    res.status(200).json(await User.destroy({ where: { id: req.params.id } })),
 });
