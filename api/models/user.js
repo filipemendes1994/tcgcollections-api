@@ -8,20 +8,24 @@ const User = DbConnection.define('user', {
     allowNull: true,
     primaryKey: true,
   },
-  name: {
-    field: 'name',
+  username: {
     type: DataTypes.STRING,
-    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    unique: true,
+  },
+  password: {
+    type: DataTypes.STRING,
+  },
+  name: {
+    type: DataTypes.STRING,
   },
   latitude: {
-    field: 'latitude',
     type: DataTypes.DOUBLE,
-    allowNull: false,
   },
   longitude: {
-    field: 'longitude',
     type: DataTypes.DOUBLE,
-    allowNull: false,
   },
   // socialNetworks: {
   //   field: 'social_networks',
@@ -30,14 +34,10 @@ const User = DbConnection.define('user', {
   //   defaultValue: new Date(),
   // },
   occupation: {
-    field: 'occupation',
     type: DataTypes.STRING,
-    allowNull: true,
   },
   bio: {
-    field: 'bio',
     type: DataTypes.STRING,
-    allowNull: true,
   },
 });
 
