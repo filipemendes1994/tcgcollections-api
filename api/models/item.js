@@ -28,6 +28,9 @@ const Item = DbConnection.define('item', {
     field: 'is_principle',
     type: DataTypes.BOOLEAN,
   },
+  photo: {
+    type: DataTypes.TEXT,
+  },
 });
 
 module.exports = () => Item;

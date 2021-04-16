@@ -9,7 +9,7 @@ module.exports = () => {
   app.set('port', process.env.PORT || config.get('server.port'));
 
   app.use(express.urlencoded());
-  app.use(express.json());
+  app.use(express.json({ limit: '50mb' }));
 
   // import data, controllers and routes to app
   consign({ cwd: 'api' })

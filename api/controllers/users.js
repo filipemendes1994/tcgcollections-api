@@ -6,10 +6,25 @@ User.Collection = User.hasMany(Collection);
 module.exports = () => ({
   list: async (req, res) => res.status(200).json(await User.findAll()),
   create: async (req, res) => {
-    const { name, occupation, latitude, longitude, bio } = req.query;
-    return res
-      .status(200)
-      .json(await User.create({ name, occupation, latitude, longitude, bio }));
+    const {
+      name,
+      occupation,
+      latitude,
+      longitude,
+      bio,
+      profilePicture,
+    } = req.body;
+
+    return res.status(200).json(
+      await User.create({
+        name,
+        occupation,
+        latitude,
+        longitude,
+        bio,
+        profilePicture,
+      })
+    );
   },
   item: async (req, res) =>
     res.status(200).json(
@@ -18,12 +33,19 @@ module.exports = () => ({
       })
     ),
   upsert: async (req, res) => {
-    const { name, occupation, latitude, longitude, bio } = req.query;
+    const {
+      name,
+      occupation,
+      latitude,
+      longitude,
+      bio,
+      profilePicture,
+    } = req.query;
     return res
       .status(200)
       .json(
         await User.update(
-          { name, occupation, latitude, longitude, bio },
+          { name, occupation, latitude, longitude, bio, profilePicture },
           { where: { id: req.params.id } }
         )
       );

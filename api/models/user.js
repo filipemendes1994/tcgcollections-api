@@ -11,6 +11,10 @@ const User = DbConnection.define('user', {
   username: {
     type: DataTypes.STRING,
   },
+  profilePicture: {
+    field: 'profile_picture',
+    type: DataTypes.TEXT,
+  },
   email: {
     type: DataTypes.STRING,
     unique: true,
