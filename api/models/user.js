@@ -7,6 +7,7 @@ const User = DbConnection.define('user', {
     type: DataTypes.INTEGER,
     allowNull: true,
     primaryKey: true,
+    autoIncrement: true,
   },
   username: {
     type: DataTypes.STRING,

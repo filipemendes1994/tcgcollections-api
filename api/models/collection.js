@@ -7,6 +7,7 @@ const Collection = DbConnection.define('collection', {
     type: DataTypes.INTEGER,
     allowNull: true,
     primaryKey: true,
+    autoIncrement: true,
   },
   name: {
     type: DataTypes.STRING,

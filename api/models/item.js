@@ -7,6 +7,7 @@ const Item = DbConnection.define('item', {
     type: DataTypes.INTEGER,
     allowNull: true,
     primaryKey: true,
+    autoIncrement: true,
   },
   collectionId: {
     field: 'collection_id',
