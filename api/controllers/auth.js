@@ -6,7 +6,7 @@ const SECRET = 'z-U0|F<A^maP6hq';
 
 module.exports = () => ({
   register: async (req, res) => {
-    const { email, password } = req.query;
+    const { email, password } = req.body;
     const alreadyExists = await User.findOne({
       where: { email },
     });
@@ -16,13 +16,29 @@ module.exports = () => ({
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
-    return res
-      .status(200)
-      .json(await User.create({ email, password: hashedPassword }));
+    const user = await User.create({ email, password: hashedPassword });
+    const token = jwt.sign({ user }, SECRET);
+
+    return res.status(200).json({ token });
+  },
+
+  oauth: async (req, res) => {
+    const { token, email, name, profilePicture } = req.body;
+    let user = await User.findOne({
+      where: { email },
+    });
+
+    if (!user) {
+      user = await User.create({ email, name, profilePicture });
+    }
+
+    const jwtToken = jwt.sign({ user, token }, SECRET);
+    return res.status(200).json({ token: jwtToken });
   },
 
   login: async (req, res) => {
-    const { email, password } = req.query;
+    const { email, password } = req.body;
+    console.log(req.body);
     const account = await User.findOne({
       where: { email },
     });
@@ -41,7 +57,7 @@ module.exports = () => ({
   },
 
   delete: async (req, res) => {
-    const { email } = req.query;
+    const { email } = req.body;
     return res.status(200).json(await User.destroy({ where: { email } }));
   },
 });

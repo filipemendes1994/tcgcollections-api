@@ -13,7 +13,7 @@ module.exports = () => ({
       name,
       aproximatedValue,
       collectionId,
-    } = req.query;
+    } = req.body;
 
     return res
       .status(200)

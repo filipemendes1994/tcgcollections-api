@@ -8,15 +8,19 @@ const Collection = DbConnection.define('collection', {
     allowNull: true,
     primaryKey: true,
   },
-  shortDescription: {
-    field: 'short_description',
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  longDescription: {
-    field: 'long_description',
+  description: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  latitude: {
+    type: DataTypes.DOUBLE,
+  },
+  longitude: {
+    type: DataTypes.DOUBLE,
   },
   snapshotDate: {
     field: 'snapshot_date',

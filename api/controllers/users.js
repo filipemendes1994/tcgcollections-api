@@ -33,19 +33,12 @@ module.exports = () => ({
       })
     ),
   upsert: async (req, res) => {
-    const {
-      name,
-      occupation,
-      latitude,
-      longitude,
-      bio,
-      profilePicture,
-    } = req.query;
+    const { name, occupation, bio, profilePicture } = req.body;
     return res
       .status(200)
       .json(
         await User.update(
-          { name, occupation, latitude, longitude, bio, profilePicture },
+          { name, occupation, bio, profilePicture },
           { where: { id: req.params.id } }
         )
       );

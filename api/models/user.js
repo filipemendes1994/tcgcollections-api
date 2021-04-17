@@ -25,12 +25,6 @@ const User = DbConnection.define('user', {
   name: {
     type: DataTypes.STRING,
   },
-  latitude: {
-    type: DataTypes.DOUBLE,
-  },
-  longitude: {
-    type: DataTypes.DOUBLE,
-  },
   // socialNetworks: {
   //   field: 'social_networks',
   //   type: DataTypes.DATE,

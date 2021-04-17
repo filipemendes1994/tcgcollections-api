@@ -6,12 +6,16 @@ Collection.Items = Collection.hasMany(Item);
 module.exports = () => ({
   list: async (req, res) => res.status(200).json(await Collection.findAll()),
   create: async (req, res) => {
-    const { shortDescription, longDescription, userId } = req.query;
-    return res
-      .status(200)
-      .json(
-        await Collection.create({ shortDescription, longDescription, userId })
-      );
+    const { name, description, latitude, longitude, userId } = req.body;
+    return res.status(200).json(
+      await Collection.create({
+        name,
+        description,
+        latitude,
+        longitude,
+        userId,
+      })
+    );
   },
   item: async (req, res) =>
     res.status(200).json(
@@ -20,12 +24,12 @@ module.exports = () => ({
       })
     ),
   upsert: async (req, res) => {
-    const { shortDescription, longDescription } = req.query;
+    const { name, description, latitude, longitude } = req.body;
     return res
       .status(200)
       .json(
         await Collection.update(
-          { shortDescription, longDescription },
+          { name, description, latitude, longitude },
           { where: { id: req.params.id } }
         )
       );
