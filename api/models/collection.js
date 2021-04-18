@@ -17,11 +17,17 @@ const Collection = DbConnection.define('collection', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  type: {
+    type: DataTypes.STRING,
+  },
   latitude: {
     type: DataTypes.DOUBLE,
   },
   longitude: {
     type: DataTypes.DOUBLE,
+  },
+  upvotes: {
+    type: DataTypes.INTEGER,
   },
   snapshotDate: {
     field: 'snapshot_date',

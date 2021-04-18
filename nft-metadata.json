@@ -1,0 +1,12 @@
+{
+  "attributes" : [ {
+    "trait_type" : "User",
+    "value" : "Filipe Mendes"
+  }, {
+    "trait_type" : "Goal",
+    "value" : "Most seen collection of 2021"
+  } ],
+  "description" : "Most seen collection of 2021",
+  "image" : "https://gateway.pinata.cloud/ipfs/QmaFSoj1SmRF3BqbjagoVfsi2Fc4cGJ6bC9wBVYHdmh4aL",
+  "name" : "Golden Badge"
+}
